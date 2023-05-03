@@ -2,6 +2,7 @@
   "name": "vue3-noodle-shop-website",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://he798003.github.io/vue3-noodle-shop-website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
