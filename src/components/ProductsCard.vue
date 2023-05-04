@@ -20,11 +20,11 @@ const onImageLoad = (item) => {
   <div class="productsCard">
     <div class="card" v-for="item of paginationData" :key="item.id">
       <div class="cardHeader">
-        <template v-if="item.isLoading || !item.imgLink">
-          <div class="placeholder"></div>
+        <template v-if="item.imgLink">
+          <img :src="item.imgLink" v-on:load="onImageLoad(item)" />
         </template>
         <template v-else>
-          <img :src="item.imgLink" v-on:load="onImageLoad(item)" />
+          <div class="placeholder"></div>
         </template>
         <div class="tag">
           <p>{{ item.type }}</p>
