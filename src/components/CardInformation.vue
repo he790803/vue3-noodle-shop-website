@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useShoppingStore } from '../stores/shopping';
 import NumInput from './NumInput.vue';
@@ -9,7 +9,10 @@ import MessageReminder from './MessageReminder.vue';
 const shoppingStore = useShoppingStore();
 const { AddShoppingCar } = useShoppingStore();
 const { cardList } = storeToRefs(shoppingStore);
+// Route
 const route = useRoute();
+// Router
+const router = useRouter();
 const itemId = route.params.id * 1;
 
 // 依據params傳入的ID，顯示對應的商品
@@ -45,6 +48,11 @@ const addShoppingCarHandler = () => {
 const numValue = (res) => {
   buyNumber.value = res;
 };
+
+// 回到上一頁
+const goBack = () => {
+  router.go(-1);
+};
 </script>
 <template>
   <div class="cardInformation" v-for="card of cardInformation" :key="card.id">
@@ -65,11 +73,12 @@ const numValue = (res) => {
         <NumInput @numControlHandler="numValue" :defineBuyNum="buyNumber" />
       </div>
       <div class="buyBtn">
+        <button @click="goBack">上一頁</button>
         <button @click="addShoppingCarHandler"><font-awesome-icon :icon="['fas', 'cart-shopping']" bounce /></button>
       </div>
     </div>
 
-    <MessageReminder message="餐點以成功加入購物車!!!" :isShow="isShow" />
+    <MessageReminder message="餐點已成功加入購物車!!!" :isShow="isShow" />
   </div>
 </template>
 <style scoped>
@@ -123,10 +132,11 @@ const numValue = (res) => {
 .buyBtn {
   height: 50px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .buyBtn button {
-  width: 100%;
+  width: 45%;
   height: 70%;
   font-size: 1.2rem;
   outline: none;

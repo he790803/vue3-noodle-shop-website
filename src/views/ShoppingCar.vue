@@ -39,6 +39,14 @@ const removingId = ref(null);
 const submitHandler = () => {
   if (shoppingCar.value.length <= 0) {
     alert('購物車是空的喔!');
+  } else if (
+    !userNameError.value ||
+    !userPhoneError.value ||
+    !userAddressError.value ||
+    !userEmailError.value ||
+    !userPaymentError.value
+  ) {
+    alert('資料尚未填寫齊全!');
   } else {
     orderList.value.push({
       user: {
@@ -206,7 +214,7 @@ watch(userPayment, checkUserPayment, { immediate: false, deep: false, debounce: 
         <div class="inputBox userPayment">
           <select name="userPayment" id="userPayment" v-model="userPayment" @blur="checkUserPayment">
             <option disabled="disabled" selected="selected" value="">付款方式</option>
-            <option value="visa">Visa</option>
+            <option value="visa">信用卡</option>
             <option value="linePay">LinePay</option>
             <option value="paypal">Paypal</option>
           </select>
@@ -216,7 +224,7 @@ watch(userPayment, checkUserPayment, { immediate: false, deep: false, debounce: 
       </div>
       <div class="submitBtn">
         <button @click="goBack">回上一頁</button>
-        <button :disabled="(disabled = !submitCheck)" @click="submitHandler">送出訂單</button>
+        <button @click="submitHandler">送出訂單</button>
       </div>
     </div>
 

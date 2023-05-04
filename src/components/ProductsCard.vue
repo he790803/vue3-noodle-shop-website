@@ -10,18 +10,13 @@ const { cardList } = storeToRefs(shoppingStore);
 
 const paginationStore = usePaginationStore();
 const { paginationData } = storeToRefs(paginationStore);
-
-const onImageLoad = (item) => {
-  item.isLoading = false;
-  console.log(item.id);
-};
 </script>
 <template>
   <div class="productsCard">
     <div class="card" v-for="item of paginationData" :key="item.id">
       <div class="cardHeader">
         <template v-if="item.imgLink">
-          <img :src="item.imgLink" v-on:load="onImageLoad(item)" />
+          <img :src="item.imgLink" />
         </template>
         <template v-else>
           <div class="placeholder"></div>
