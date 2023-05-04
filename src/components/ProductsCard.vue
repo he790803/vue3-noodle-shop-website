@@ -10,12 +10,22 @@ const { cardList } = storeToRefs(shoppingStore);
 
 const paginationStore = usePaginationStore();
 const { paginationData } = storeToRefs(paginationStore);
+
+const onImageLoad = (item) => {
+  item.isLoading = false;
+  console.log(item.id);
+};
 </script>
 <template>
   <div class="productsCard">
     <div class="card" v-for="item of paginationData" :key="item.id">
       <div class="cardHeader">
-        <img :src="item.imgLink" />
+        <template v-if="item.isLoading || !item.imgLink">
+          <div class="placeholder"></div>
+        </template>
+        <template v-else>
+          <img :src="item.imgLink" v-on:load="onImageLoad(item)" />
+        </template>
         <div class="tag">
           <p>{{ item.type }}</p>
         </div>
@@ -31,23 +41,6 @@ const { paginationData } = storeToRefs(paginationStore);
       </div>
     </div>
   </div>
-
-  <!-- <div class="productCard">
-    <div class="card" v-for="item of paginationData" :key="item.id">
-      <RouterLink :to="`/shop/${item.id}`">
-        <div class="cardImg">
-          <img :src="item.imgLink" />
-        </div>
-        <div class="content">
-          <div class="title">{{ item.title }}</div>
-          <div class="price">NT {{ item.price }} 元</div>
-          <div class="more">
-            <p>更多資訊</p>
-          </div>
-        </div>
-      </RouterLink>
-    </div>
-  </div> -->
 </template>
 <style scoped>
 .productsCard {
@@ -57,6 +50,13 @@ const { paginationData } = storeToRefs(paginationStore);
   grid-template-columns: repeat(auto-fill, 400px);
   gap: 10px;
   padding: 0 1rem 1rem;
+}
+.placeholder {
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
 }
 .card {
   width: 400px;

@@ -13,6 +13,7 @@ export const useShoppingStore = defineStore('Shopping', () => {
       imgLink: new URL(`../assets/images/rightPage/fourthPage/hanxiao-fgLqwfsekxk-unsplash.jpg`, import.meta.url),
       type: '主餐',
       typeEN: 'mainMeal',
+      isLoading: true,
     },
     {
       id: 2,
@@ -22,6 +23,7 @@ export const useShoppingStore = defineStore('Shopping', () => {
       imgLink: new URL(`../assets/images/rightPage/fourthPage/tammie-knight-fC4rGYxMqCY-unsplash.jpg`, import.meta.url),
       type: '主餐',
       typeEN: 'mainMeal',
+      isLoading: true,
     },
     {
       id: 3,
@@ -34,6 +36,7 @@ export const useShoppingStore = defineStore('Shopping', () => {
       ),
       type: '點心',
       typeEN: 'dessert',
+      isLoading: true,
     },
     {
       id: 4,
@@ -46,6 +49,7 @@ export const useShoppingStore = defineStore('Shopping', () => {
       ),
       type: '主餐',
       typeEN: 'mainMeal',
+      isLoading: true,
     },
     {
       id: 5,
@@ -58,6 +62,7 @@ export const useShoppingStore = defineStore('Shopping', () => {
       ),
       type: '飲品',
       typeEN: 'drinks',
+      isLoading: true,
     },
     {
       id: 6,
@@ -67,6 +72,7 @@ export const useShoppingStore = defineStore('Shopping', () => {
       imgLink: new URL(`../assets/images/rightPage/fourthPage/hamide-jafari-kmwtxSOkQPc-unsplash.jpg`, import.meta.url),
       type: '湯品',
       typeEN: 'soup',
+      isLoading: true,
     },
   ]);
 

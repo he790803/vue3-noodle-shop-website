@@ -36,23 +36,6 @@ const { filterDataHandler } = usePaginationStore();
         </ul>
       </div>
       <ProductsCard />
-      <!-- <div class="productsCard">
-        <div class="card">
-          <div class="cardHeader">
-            <img src="https://picsum.photos/300/200/?random=10" />
-            <div class="tag">
-              <p>主餐</p>
-            </div>
-          </div>
-          <div class="cardBody">
-            <h3>佐賀 A5 霜降牛排</h3>
-            <p>油花細密，佐賀牛最高級的美味。</p>
-          </div>
-          <div class="cardFooter">
-            <button class="apply">More</button>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
