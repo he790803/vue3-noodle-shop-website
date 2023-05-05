@@ -499,7 +499,7 @@ input:-internal-autofill-selected {
     width: 100%;
   }
   .inputBox label {
-    top: -1.5em;
+    top: 0em;
   }
 }
 </style>

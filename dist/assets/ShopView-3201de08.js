@@ -1,0 +1,1 @@
+import{_ as a,r as o,o as s,g as t,E as _,b as c,c as n,j as r,u as p,R as u}from"./index-b189cd52.js";const d={__name:"ShopView",setup(i){const e=o(null);return s(()=>{t.to(e.value,{duration:1.5,width:"100%",ease:_.easeInOut})}),(l,f)=>(c(),n("div",{class:"shop",ref_key:"background",ref:e},[r(p(u))],512))}},g=a(d,[["__scopeId","data-v-80a9207c"]]);export{g as default};
