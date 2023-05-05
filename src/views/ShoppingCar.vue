@@ -336,7 +336,6 @@ select {
 .inputBox label {
   position: absolute;
   left: 0;
-  top: 0;
   padding: 20px;
   pointer-events: none;
   font-size: 1rem;
@@ -498,6 +497,9 @@ input:-internal-autofill-selected {
   .userSection,
   .itemSection {
     width: 100%;
+  }
+  .inputBox label {
+    top: -1.5em;
   }
 }
 </style>
